@@ -1,0 +1,24 @@
+package com.sofka.ciclismo.mapper;
+
+import com.sofka.ciclismo.collections.Team;
+import com.sofka.ciclismo.dto.TeamDto;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
+
+import java.util.function.Function;
+
+@Component
+public class TeamMapper {
+    private final ModelMapper modelMapper;
+
+    public TeamMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+    }
+
+    public Function<Team, TeamDto> fromTeamToTeamDto(){
+        return cyclist->  modelMapper.map(cyclist, TeamDto.class);
+    }
+    public Function<TeamDto,Team> fromDtotoTeam(){
+        return cyclistDto ->  modelMapper.map(cyclistDto, Team.class);
+    }
+}
