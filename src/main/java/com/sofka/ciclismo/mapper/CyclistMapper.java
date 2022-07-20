@@ -15,11 +15,12 @@ public class CyclistMapper {
         this.modelMapper = modelMapper;
     }
 
-    public Function<Cyclist, CyclistDto> fromCyclistToCyclistDto(){
-        return cyclist->  modelMapper.map(cyclist, CyclistDto.class);
+    public CyclistDto fromCyclistToCyclistDTO(Cyclist cyclist){
+        return modelMapper.map(cyclist, CyclistDto.class);
     }
-    public Function<CyclistDto,Cyclist> fromDtotoCyclist(){
-        return cyclistDto ->  modelMapper.map(cyclistDto, Cyclist.class);
+
+    public Cyclist fromCyclistDTOToCyclist(CyclistDto cyclistDto){
+        return modelMapper.map(cyclistDto, Cyclist.class);
     }
 
 

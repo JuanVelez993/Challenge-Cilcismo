@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Cyclist {
     @Id
     private String tagNumber;
+    private String name;
     private String teamId;
     private String nationality;
 }

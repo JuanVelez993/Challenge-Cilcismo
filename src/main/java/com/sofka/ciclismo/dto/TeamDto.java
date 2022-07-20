@@ -10,5 +10,5 @@ public class TeamDto {
     private String teamId;
     private String teamName;
     private String country;
-    private List<Cyclist> cyclists;
+    private List<CyclistDto> cyclists;
 }
