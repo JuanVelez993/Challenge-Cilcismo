@@ -20,7 +20,7 @@ public class CreateCyclistRoute {
 
     @Bean
     public RouterFunction<ServerResponse> createCyclist(CreateCyclistUseCase createCyclistUseCase) {
-        return route(POST("api/v1/createCyclist").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/api/v1/createCyclist").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(CyclistDto.class)
                         .flatMap(createCyclistUseCase::createCyclist)
                         .flatMap(cyclistDto -> ServerResponse.status(HttpStatus.CREATED)

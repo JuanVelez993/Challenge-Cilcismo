@@ -20,7 +20,7 @@ public class CreateTeamRoute {
 
     @Bean
     public RouterFunction<ServerResponse> createTeam(CreateTeamUseCase createTeamUseCase ) {
-        return route(POST("/api/v1/createteam").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/api/v1/createTeam").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(TeamDto.class)
                         .flatMap(createTeamUseCase::createTeam)
                         .flatMap(teamDto -> ServerResponse.status(HttpStatus.CREATED)
