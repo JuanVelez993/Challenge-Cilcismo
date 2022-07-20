@@ -5,10 +5,12 @@ import com.sofka.ciclismo.mapper.CyclistMapper;
 import com.sofka.ciclismo.repository.CyclistRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
+@Validated
 public class UpdateCyclistUseCase {
     private CyclistRepository cyclistRepository;
     private CyclistMapper cyclistMapper;

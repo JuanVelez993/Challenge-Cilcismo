@@ -6,10 +6,12 @@ import com.sofka.ciclismo.mapper.CyclistMapper;
 import com.sofka.ciclismo.repository.CyclistRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
+@Validated
 public class CreateCyclistUseCase {
     private final CyclistRepository cyclistRepository;
     private final CyclistMapper cyclistMapper;

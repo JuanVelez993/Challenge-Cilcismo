@@ -11,8 +11,12 @@ import java.util.List;
 @Data
 public class Team {
     @Id
+
     private String teamId;
+
     private String teamName;
+
     private String country;
+
     private List<CyclistDto> cyclists;
 }
