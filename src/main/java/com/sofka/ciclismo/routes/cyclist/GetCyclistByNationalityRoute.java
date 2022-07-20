@@ -17,7 +17,7 @@ public class GetCyclistByNationalityRoute {
 
     @Bean
     public RouterFunction<ServerResponse> getCyclistByNationality(GetCyclistByNationalityUseCase getCyclistByNationalityUseCase){
-        return route(GET("/api/v1//getByNationality/{nationality}"),
+        return route(GET("/api/v1/getByNationality/{nationality}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromProducer(getCyclistByNationalityUseCase.getCyclistsByNationality(request.pathVariable("nationality")),
                                 CyclistDto.class)));

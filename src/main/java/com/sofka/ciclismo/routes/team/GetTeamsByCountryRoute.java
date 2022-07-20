@@ -1,7 +1,7 @@
-package com.sofka.ciclismo.routes.cyclist;
+package com.sofka.ciclismo.routes.team;
 
-import com.sofka.ciclismo.dto.CyclistDto;
-import com.sofka.ciclismo.usecases.cyclist.GetCyclistByTeamUseCase;
+import com.sofka.ciclismo.dto.TeamDto;
+import com.sofka.ciclismo.usecases.team.GetTeamsByCountryUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -13,12 +13,12 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class GetCyclistByTeamRoute {
+public class GetTeamsByCountryRoute {
     @Bean
-    public RouterFunction<ServerResponse> getCyclistByTeam(GetCyclistByTeamUseCase getCyclistByTeamUseCase){
-        return route(GET("/api/v1/getByTeam/{teamId}"),
+    public RouterFunction<ServerResponse> getTeamByCountry(GetTeamsByCountryUseCase getTeamsByCountryUseCase){
+        return route(GET("/api/v1/getByCountry/{country}"),
                 request -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromProducer(getCyclistByTeamUseCase.getCyclistByTeamId(request.pathVariable("teamId")),
-                                CyclistDto.class)));
+                        .body(BodyInserters.fromProducer(getTeamsByCountryUseCase.getTeamsByCountry(request.pathVariable("country")),
+                                TeamDto.class)));
     }
 }
